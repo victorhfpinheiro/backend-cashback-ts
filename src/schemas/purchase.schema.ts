@@ -45,7 +45,7 @@ const PurchaseSchema = new Schema(
     status: {
       type: String,
       enum: Object.values(StatusPurchase),
-      default: StatusPurchase['Em validação'].toString()
+      default: StatusPurchase.EM_VALIDACAO
     }
   },
   {
@@ -69,7 +69,7 @@ PurchaseSchema.pre<IPurchaseInterface>('save', async function (next: NextFunctio
   }
 
   if (self.dealer.documentNumber === '15350946056') {
-    self.status = StatusPurchase.Aprovado
+    self.status = StatusPurchase.APROVADO
   }
   next()
 })

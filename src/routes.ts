@@ -15,7 +15,7 @@ const routes = Router()
 routes.post('/dealer', celebrate(DealerValidator.create), DealerController.create)
 routes.post('/authenticate', celebrate(AuthenticateValidator.authenticate), AuthenticateController.authenticate)
 
-routes.get('/purchase', celebrate(PurchaseValidator.index), PurchaseController.index)
+routes.get('/purchase', celebrate(PurchaseValidator.index), Auth.validateJwt, PurchaseController.index)
 routes.post('/purchase', celebrate(PurchaseValidator.create), Auth.validateJwt, PurchaseController.create)
 
 routes.get('/cashback', celebrate(CashBackValidator.cashback), Auth.validateJwt, CashbackController.cashback)

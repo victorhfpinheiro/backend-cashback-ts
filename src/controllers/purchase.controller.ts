@@ -24,7 +24,7 @@ class PurchaseController {
     const purchase = await Purchase.create({ code, date: dtFormatted, value, dealer })
     purchase.dealer = undefined
 
-    return res.status(200).json({
+    return res.status(201).json({
       success: true,
       purchase
     })

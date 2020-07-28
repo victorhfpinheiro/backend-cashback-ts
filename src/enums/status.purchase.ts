@@ -1,4 +1,4 @@
 export enum StatusPurchase {
-  'Em validação',
-  'Aprovado'
+  EM_VALIDACAO = 'Em validação',
+  APROVADO = 'Aprovado'
 }
