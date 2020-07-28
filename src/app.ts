@@ -30,9 +30,11 @@ class App {
         useCreateIndex: true,
         useUnifiedTopology: true
       }
-    ).catch(err => {
-      console.error(err)
-    })
+    ).then(() =>
+      console.log('Conexão com banco de dados realizada com sucesso.')
+    ).catch((err) =>
+      console.error('Erro ao conectar no banco de dados', err)
+    )
   }
 
   private routes (): void {
