@@ -1,24 +1,12 @@
 import { Request, Response } from 'express'
-import Dealer from '@schemas/dealer.schema'
 import AuthUtils from '@utils/auth.utils'
+import DealerService from '@services/dealer.service'
 
 class DealerController {
   async create (req: Request, res: Response): Promise<Response> {
     const { name, email, documentNumber, password } = req.body
 
-    const dealerExists = await Dealer.findOne({ documentNumber })
-
-    if (dealerExists) {
-      return res.status(400).send({ success: false, message: 'Dealer already registered!' })
-    }
-
-    const dealer = await Dealer.create({ name, email, documentNumber, password })
-
-    if (!dealer) {
-      return res.status(500).json({ success: false, message: 'Ops! Something went wrong, try again later!' })
-    }
-
-    dealer.password = undefined
+    const dealer = await DealerService.create(name, email, documentNumber, password)
 
     const token = await AuthUtils.generateToken({ dealerId: dealer._id })
 

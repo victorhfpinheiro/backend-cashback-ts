@@ -1,12 +1,9 @@
 import { Request, Response } from 'express'
-import Purchase from '@schemas/purchase.schema'
-import Dealer from '@schemas/dealer.schema'
-import moment from 'moment'
+import PurchaseService from '@services/purchase.service'
 
 class PurchaseController {
   async index (req: Request, res: Response) {
-    const dealer = await Dealer.findById(req.dealerId)
-    const purchases = await Purchase.find({ dealer: dealer })
+    const purchases = await PurchaseService.index(req.dealerId)
 
     return res.status(200).json({
       success: true,
@@ -17,12 +14,7 @@ class PurchaseController {
   async create (req: Request, res: Response) {
     const { code, date, value } = req.body
 
-    const dealer = await Dealer.findById(req.dealerId)
-
-    const dtFormatted: Date = moment(date, 'DD/MM/YYYY', true).toDate()
-
-    const purchase = await Purchase.create({ code, date: dtFormatted, value, dealer })
-    purchase.dealer = undefined
+    const purchase = await PurchaseService.create(req.dealerId, code, date, value)
 
     return res.status(201).json({
       success: true,

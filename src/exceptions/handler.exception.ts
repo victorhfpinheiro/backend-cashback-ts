@@ -12,6 +12,8 @@ export default (err: Error, _req: Request, res: Response, _next: NextFunction): 
     )
   }
 
+  console.error(err)
+
   return res.status(500).json({
     statusCode: Props[500].HTTP_CODE,
     error: Props[500].MESSAGE

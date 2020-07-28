@@ -1,11 +1,11 @@
 export = {
   500: {
     HTTP_CODE: 500,
-    MESSAGE: 'Ops! Algo deu errado, tente novamente mais tarde!'
+    MESSAGE: 'Ops! Something went wrong, try again later!'
   },
   1000: {
     HTTP_CODE: 400,
-    MESSAGE: 'Revendedor já cadastrado no sistema.'
+    MESSAGE: 'Dealer already registered!'
   },
   1001: {
     HTTP_CODE: 400,
