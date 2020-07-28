@@ -1,9 +1,12 @@
 import express from 'express'
+import 'express-async-errors'
 import cors from 'cors'
 import * as dotenv from 'dotenv'
+import bodyParser from 'body-parser'
 import routes from './routes'
 import { errors } from 'celebrate'
 import mongoose from 'mongoose'
+import handlerException from './exceptions/handler.exception'
 
 class App {
   public express: express.Application;
@@ -13,12 +16,15 @@ class App {
     this.middlewares()
     this.database()
     this.routes()
+    this.errors()
     this.envs()
   }
 
   private middlewares (): void {
     this.express.use(express.json())
     this.express.use(cors())
+    this.express.use(bodyParser.json())
+    this.express.use(bodyParser.urlencoded({ extended: false }))
   }
 
   private database (): void {
@@ -39,7 +45,11 @@ class App {
 
   private routes (): void {
     this.express.use(process.env.PREFIX_URL || '/api', routes)
+  }
+
+  private errors (): void {
     this.express.use(errors())
+    this.express.use(handlerException)
   }
 
   private envs (): void {

@@ -34,6 +34,9 @@
       "@controllers/*": [
         "./src/controllers/*"
       ],
+      "@services/*": [
+        "./src/services/*"
+      ],
       "@middlewares/*": [
         "./src/middlewares/*"
       ],
@@ -45,7 +48,13 @@
       ],
       "@enums/*": [
         "./src/enums/*"
-      ]
+      ],
+      "@exceptions/*": [
+        "./src/exceptions/*"
+      ],
+      "@errors/*": [
+        "./src/errors/*"
+      ],
     }
   },
   "include": [
