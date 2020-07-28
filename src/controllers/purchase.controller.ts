@@ -22,6 +22,7 @@ class PurchaseController {
     const dtFormatted: Date = moment(date, 'DD/MM/YYYY', true).toDate()
 
     const purchase = await Purchase.create({ code, date: dtFormatted, value, dealer })
+    purchase.dealer = undefined
 
     return res.status(200).json({
       success: true,
