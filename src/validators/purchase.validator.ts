@@ -13,7 +13,7 @@ export class PurchaseValidator {
     }).unknown(),
     [Segments.BODY]: Joi.object().keys({
       code: Joi.string().length(6).required(),
-      date: Joi.string().length(10).regex(new RegExp('\\d{2}/\\d{2}/\\d{4}')).required().label('Format valid is dd/mm/yyyy'),
+      date: Joi.date().timestamp().iso().required().label('Format valid is 2020-07-28T16:00:00-03:00'),
       value: Joi.number().required()
     })
   }

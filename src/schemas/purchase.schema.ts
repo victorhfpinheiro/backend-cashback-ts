@@ -36,6 +36,12 @@ const PurchaseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Dealer'
     },
+    cashBackPercent: {
+      type: Number
+    },
+    cashBackValue: {
+      type: Number
+    },
     status: {
       type: StatusPurchase,
       required: true,
