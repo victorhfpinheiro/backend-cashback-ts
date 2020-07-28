@@ -14,7 +14,7 @@
     "mongoose": "^5.9.25"
   },
   "scripts": {
-    "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify -r dotenv/config src/server.ts dotenv_config_path=.env"
+    "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify -r dotenv/config --files src/server.ts dotenv_config_path=.env"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",

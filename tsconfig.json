@@ -1,4 +1,10 @@
 {
+  "ts-node": {
+    "files": true
+  },
+  "files": [
+    "/src/*.d.ts"
+  ],
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
@@ -10,8 +16,10 @@
     "rootDir": "./src",
     "removeComments": true,
     "typeRoots": [
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "./src/@types",
     ],
+    "pretty": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -46,5 +54,5 @@
   "exclude": [
     "node_modules",
     ".vscode"
-  ]
+  ],
 }

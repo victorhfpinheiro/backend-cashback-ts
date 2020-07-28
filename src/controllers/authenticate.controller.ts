@@ -19,7 +19,7 @@ class AuthenticateController {
 
     dealer.password = undefined
 
-    const token = await AuthUtils.generateToken({ documentNumber: dealer.documentNumber })
+    const token = await AuthUtils.generateToken({ dealerId: dealer._id })
 
     res.send({
       sucesso: true,

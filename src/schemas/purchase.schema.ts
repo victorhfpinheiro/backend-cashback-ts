@@ -6,16 +6,19 @@ import { StatusPurchase } from '@enums/status.purchase'
 export interface IPurchaseInterface extends Document {
   code: number,
   value: number,
+  date: Date,
   dealer: IDealerInterface,
-  status: StatusPurchase,
-  cashBackPercent: number,
-  cashBackValue: number,
+  status?: StatusPurchase,
+  cashBackPercent?: number,
+  cashBackValue?: number,
 }
 
 const PurchaseSchema = new Schema(
   {
     code: {
       type: Number,
+      minlength: 6,
+      maxlength: 6,
       trim: true,
       required: true,
       unique: true
@@ -23,6 +26,10 @@ const PurchaseSchema = new Schema(
     value: {
       type: Number,
       trim: true,
+      required: true
+    },
+    date: {
+      type: Date,
       required: true
     },
     dealer: {
