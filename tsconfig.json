@@ -3,7 +3,7 @@
     "files": true
   },
   "files": [
-    "/src/*.d.ts"
+    "./src/@types/request.d.ts"
   ],
   "compilerOptions": {
     "target": "es2017",

@@ -43,9 +43,9 @@ const PurchaseSchema = new Schema(
       type: Number
     },
     status: {
-      type: StatusPurchase,
-      required: true,
-      default: StatusPurchase['Em validação']
+      type: String,
+      enum: Object.values(StatusPurchase),
+      default: StatusPurchase['Em validação'].toString()
     }
   },
   {
