@@ -12,7 +12,7 @@ export class PurchaseValidator {
       authorization: Joi.string().required()
     }).unknown(),
     [Segments.BODY]: Joi.object().keys({
-      code: Joi.string().length(6).required(),
+      code: Joi.string().min(1).max(6).required(),
       date: Joi.date().timestamp().iso().required().label('Format valid is 2020-07-28T16:00:00-03:00'),
       value: Joi.number().required()
     })
