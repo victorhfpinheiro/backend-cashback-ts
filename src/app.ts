@@ -7,21 +7,26 @@ import routes from './routes'
 import { errors } from 'celebrate'
 import mongoose from 'mongoose'
 import handlerException from './exceptions/handler.exception'
+import loggerMiddleware from '@middlewares/logger.middleware'
 
 class App {
   public express: express.Application;
 
   public constructor () {
     this.express = express()
+    this.envs()
     this.middlewares()
     this.database()
+    this.logger()
     this.routes()
     this.errors()
-    this.envs()
+  }
+
+  private envs (): void {
+    dotenv.config()
   }
 
   private middlewares (): void {
-    this.express.use(express.json())
     this.express.use(cors())
     this.express.use(bodyParser.json())
     this.express.use(bodyParser.urlencoded({ extended: false }))
@@ -43,6 +48,10 @@ class App {
     )
   }
 
+  private logger (): void {
+    this.express.use(loggerMiddleware)
+  }
+
   private routes (): void {
     this.express.use(process.env.PREFIX_URL || '/api', routes)
   }
@@ -50,10 +59,6 @@ class App {
   private errors (): void {
     this.express.use(errors())
     this.express.use(handlerException)
-  }
-
-  private envs (): void {
-    dotenv.config()
   }
 }
 
