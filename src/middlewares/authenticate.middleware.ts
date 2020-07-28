@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
+import AppException from '@exceptions/app.exception'
+import Props from '@errors/app.errors'
 
 class Auth {
   async validateJwt (req: Request, res: Response, next: NextFunction) {
@@ -8,18 +10,18 @@ class Auth {
     const parts = authHeader.split(' ')
 
     if (!(parts.length === 2)) {
-      return res.status(401).send({ success: false, mensage: 'Token mal formated!' })
+      throw new AppException(Props[1003].HTTP_CODE, Props[1003].MESSAGE)
     }
 
     const [scheme, token] = parts
 
     if (!/^Bearer$/i.test(scheme)) {
-      return res.status(401).send({ success: false, mensage: 'Token mal formated!' })
+      throw new AppException(Props[1003].HTTP_CODE, Props[1003].MESSAGE)
     }
 
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) {
-        return res.status(401).send({ success: false, mensage: 'Token invalid!' })
+        throw new AppException(Props[1004].HTTP_CODE, Props[1004].MESSAGE)
       }
 
       // eslint-disable-next-line dot-notation

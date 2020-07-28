@@ -14,5 +14,13 @@ export = {
   1002: {
     HTTP_CODE: 400,
     MESSAGE: 'Dealer Not Found!'
+  },
+  1003: {
+    HTTP_CODE: 401,
+    MESSAGE: 'Token mal formatted!'
+  },
+  1004: {
+    HTTP_CODE: 401,
+    MESSAGE: 'Invalid token!'
   }
 };
