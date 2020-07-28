@@ -5,7 +5,7 @@ import { StatusPurchase } from '@enums/status.purchase'
 
 export interface IPurchaseInterface extends Document {
   code: number,
-  value: number
+  value: number,
   dealer: IDealerInterface,
   status: StatusPurchase,
   cashBackPercent: number,
@@ -55,7 +55,7 @@ PurchaseSchema.pre<IPurchaseInterface>('save', async function (next: NextFunctio
     self.cashBackValue = self.value * 0.20
   }
 
-  if (self.dealer.cpf === '15350946056') {
+  if (self.dealer.documentNumber === '15350946056') {
     self.status = StatusPurchase.Aprovado
   }
   next()

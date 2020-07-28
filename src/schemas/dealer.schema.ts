@@ -5,7 +5,7 @@ import { hash } from 'bcrypt'
 export interface IDealerInterface extends Document {
   name: string,
   email: string,
-  cpf: string,
+  documentNumber: string,
   password: string
 }
 
@@ -22,7 +22,7 @@ const DealerSchema = new Schema(
       trim: true,
       required: true
     },
-    cpf: {
+    documentNumber: {
       type: String,
       unique: true,
       trim: true,
