@@ -9,13 +9,13 @@ class DealerController {
     const dealerExists = await Dealer.findOne({ documentNumber })
 
     if (dealerExists) {
-      return res.status(400).send({ success: false, message: 'Revendedor já cadastrado no sistema.' })
+      return res.status(400).send({ success: false, message: 'Dealer already registered!' })
     }
 
     const dealer = await Dealer.create({ name, email, documentNumber, password })
 
     if (!dealer) {
-      return res.status(500).json({ success: false, message: 'Ops! Algo deu errado, tente novamente mais tarde!' })
+      return res.status(500).json({ success: false, message: 'Ops! Something went wrong, try again later!' })
     }
 
     dealer.password = undefined

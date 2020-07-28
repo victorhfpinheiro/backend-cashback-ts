@@ -31,9 +31,9 @@ class App {
         useUnifiedTopology: true
       }
     ).then(() =>
-      console.log('Conexão com banco de dados realizada com sucesso.')
+      console.log('Database connected.')
     ).catch((err) =>
-      console.error('Erro ao conectar no banco de dados', err)
+      console.error('Error connecting to the database.', err)
     )
   }
 

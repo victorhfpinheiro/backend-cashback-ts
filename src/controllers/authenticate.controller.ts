@@ -10,11 +10,11 @@ class AuthenticateController {
     const dealer = await Dealer.findOne({ documentNumber }).select('+password')
 
     if (!dealer) {
-      return res.status(400).send({ success: false, message: 'Usuário não existe!' })
+      return res.status(400).send({ success: false, message: 'Dealer not found!' })
     }
 
     if (!await bcrypt.compare(password, dealer.password)) {
-      return res.status(400).send({ success: false, message: 'Senha inválida!' })
+      return res.status(400).send({ success: false, message: 'Password invalid!' })
     }
 
     dealer.password = undefined
