@@ -7,7 +7,7 @@ class CashBackController {
 
     return res.status(200).json({
       success: true,
-      cashBack
+      cashBackValue: cashBack
     })
   }
 }
