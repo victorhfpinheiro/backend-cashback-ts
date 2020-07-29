@@ -3,19 +3,18 @@ import request from 'supertest'
 
 import app from '../../app'
 
-describe('Authenticate Dealer', () => {
-  test('Create Dealer', async () => {
-    const dealer = await Dealer.create({
+describe('Authenticate', () => {
+  beforeAll(async () => {
+    const dealer = {
       name: 'Jest Dealer',
       email: 'jestdealer@test.com',
       documentNumber: '04565255580',
       password: 'test@123'
-    })
-
-    expect(dealer._id).not.toEqual(null || undefined)
+    }
+    await Dealer.create(dealer)
   })
 
-  test('Credentials ok', async () => {
+  it('Credentials ok', async () => {
     await request(app)
       .post('/api/authenticate')
       .set('Accept', 'application/json')
@@ -23,7 +22,7 @@ describe('Authenticate Dealer', () => {
       .expect(200)
   })
 
-  test('Credentials password not ok', async () => {
+  it('Credentials password not ok', async () => {
     await request(app)
       .post('/api/authenticate')
       .set('Accept', 'application/json')
@@ -31,7 +30,7 @@ describe('Authenticate Dealer', () => {
       .expect(400)
   })
 
-  test('Credentials documentNumber not ok', async () => {
+  it('Credentials documentNumber not ok', async () => {
     await request(app)
       .post('/api/authenticate')
       .set('Accept', 'application/json')

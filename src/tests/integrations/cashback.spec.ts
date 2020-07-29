@@ -1,3 +1,0 @@
-describe('CashBack', () => {
-  console.log()
-})

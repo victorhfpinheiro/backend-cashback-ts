@@ -1,4 +1,4 @@
-export = {
+const errors = {
   500: {
     HTTP_CODE: 500,
     MESSAGE: 'Ops! Something went wrong, try again later!'
@@ -23,4 +23,6 @@ export = {
     HTTP_CODE: 401,
     MESSAGE: 'Invalid token!'
   }
-};
+}
+
+export default errors

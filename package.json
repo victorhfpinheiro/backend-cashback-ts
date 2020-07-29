@@ -14,16 +14,25 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "express-winston": "^4.0.5",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.27.0",
     "mongoose": "^5.9.25",
     "winston": "^3.3.3"
   },
   "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify --files src/server.ts",
-    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --silent --forceExit"
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --forceExit"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/app-root-path": "^1.2.4",
     "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.6",
@@ -35,6 +44,7 @@
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",

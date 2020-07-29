@@ -1,10 +1,12 @@
-import { Joi, Segments } from 'celebrate'
+import { Joi, Segments, celebrate } from 'celebrate'
 
-export class AuthenticateValidator {
-  public static authenticate = {
-    [Segments.BODY]: Joi.object().keys({
-      documentNumber: Joi.string().length(11).required(),
-      password: Joi.string().required()
-    }).unknown()
-  }
+const authenticate = celebrate({
+  [Segments.BODY]: Joi.object().keys({
+    documentNumber: Joi.string().length(11).required(),
+    password: Joi.string().required()
+  }).unknown()
+})
+
+export default {
+  authenticate
 }

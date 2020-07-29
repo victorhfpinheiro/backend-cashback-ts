@@ -13,7 +13,7 @@ export default (err: Error, _req: Request, res: Response, _next: NextFunction): 
     )
   }
 
-  logger.error(err)
+  logger.error(err.stack)
 
   return res.status(500).json({
     statusCode: Props[500].HTTP_CODE,

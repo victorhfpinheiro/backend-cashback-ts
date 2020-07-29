@@ -1,9 +1,11 @@
-import { Segments, Joi } from 'celebrate'
+import { Segments, Joi, celebrate } from 'celebrate'
 
-export default class CashBackValidator {
-  public static cashback = {
-    [Segments.HEADERS]: Joi.object().keys({
-      authorization: Joi.string().required()
-    }).unknown()
-  }
+const cashback = celebrate({
+  [Segments.HEADERS]: Joi.object().keys({
+    authorization: Joi.string().required()
+  }).unknown()
+})
+
+export default {
+  cashback
 }

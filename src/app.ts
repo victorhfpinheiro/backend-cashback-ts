@@ -1,11 +1,11 @@
 import express from 'express'
-import 'express-async-errors'
 import cors from 'cors'
-import * as dotenv from 'dotenv'
+import 'express-async-errors'
+import './configs/envs.config'
 import bodyParser from 'body-parser'
 import routes from './routes'
-import { errors } from 'celebrate'
 import mongoose from 'mongoose'
+import { errors } from 'celebrate'
 import handlerException from './exceptions/handler.exception'
 import loggerMiddleware from './middlewares/logger.middleware'
 import logger from './logger/logger.app'
@@ -15,20 +15,11 @@ class App {
 
   public constructor () {
     this.express = express()
-    this.envs()
     this.logger()
     this.middlewares()
     this.database()
     this.routes()
     this.errors()
-  }
-
-  private envs (): void {
-    const { NODE_ENV } = process.env
-
-    dotenv.config({
-      path: NODE_ENV === 'test' ? './env/.env.test' : './env/.env'
-    })
   }
 
   private middlewares (): void {
