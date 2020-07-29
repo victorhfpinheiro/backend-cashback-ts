@@ -58,9 +58,9 @@
       "@configs/*": [
         "./src/configs/*"
       ],
-      "@loggers/*": [
-        "./src/loggers/*"
-      ],
+      "@logger/*": [
+        "./src/logger/*"
+      ]
     }
   },
   "include": [

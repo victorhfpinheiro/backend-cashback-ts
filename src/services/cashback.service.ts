@@ -8,7 +8,7 @@ class CashBackService {
       }
     })
 
-    return response.data
+    return response.data.body.credit
   }
 }
 

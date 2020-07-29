@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify --files src/server.ts",
-    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles"
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles --silent --forceExit"
   },
   "devDependencies": {
     "@types/app-root-path": "^1.2.4",
