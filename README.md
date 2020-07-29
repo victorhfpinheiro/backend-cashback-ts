@@ -33,6 +33,11 @@
 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
+## 🚀 Deploy
+
+1. Após realizarmos o merge da feature da alteção na master, em minutos o codigo ficará disponivel no Heroku:
+- [Heroky](https://backend-cashback-ts.herokuapp.com)
+
 ## 📝 Licença
 
 - Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
