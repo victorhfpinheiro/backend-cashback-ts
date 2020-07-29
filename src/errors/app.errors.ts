@@ -25,7 +25,7 @@ const errors = {
   },
   1005: {
     HTTP_CODE: 400,
-    MESSAGE: 'Purchase already registered!'
+    MESSAGE: 'Purchase already registered for this dealer!'
   }
 }
 

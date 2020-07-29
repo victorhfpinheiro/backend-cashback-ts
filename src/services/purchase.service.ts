@@ -14,13 +14,13 @@ class PurchaseService {
   }
 
   async create (dealerId: string, code: number, date: string, value: number) {
-    const purchaseExists = await Purchase.findOne({ code })
+    const dealer = await DealerService.findById(dealerId)
+
+    const purchaseExists = await Purchase.findOne({ code, dealer })
 
     if (purchaseExists) {
       throw new AppException(Props[1005].HTTP_CODE, Props[1005].MESSAGE)
     }
-
-    const dealer = await DealerService.findById(dealerId)
 
     const dtFormatted: Date = moment(date, 'DD/MM/YYYY', true).toDate()
 

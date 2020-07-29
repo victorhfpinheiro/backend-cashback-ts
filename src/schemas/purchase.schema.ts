@@ -17,11 +17,10 @@ const PurchaseSchema = new Schema(
   {
     code: {
       type: Number,
-      minlength: 6,
+      minlength: 1,
       maxlength: 6,
       trim: true,
-      required: true,
-      unique: true
+      required: true
     },
     value: {
       type: Number,
