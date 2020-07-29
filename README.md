@@ -38,7 +38,7 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 - Após realizarmos o merge da feature da alteção na master, em minutos o codigo ficará disponivel no Heroku:\\n
 `https://backend-cashback-ts.herokuapp.com/api/`
 
-## ⭐ Rotas
+## 🚗 Rotas
 
 - `POST /dealer`: Rota responsável por cadastrar um revendedor.
 - `POST /autenticate`: Rota responsável por autenticar um revendedor.
