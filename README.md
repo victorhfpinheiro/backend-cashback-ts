@@ -36,7 +36,15 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ## 🚀 Deploy Heroku
 
 - Após realizarmos o merge da feature da alteção na master, em minutos o codigo ficará disponivel no Heroku:
-`https://backend-cashback-ts.herokuapp.com/`
+`https://backend-cashback-ts.herokuapp.com/api/`
+
+## ⭐ Rotas
+
+`POST /dealer`: Rota responsável por cadastrar um revendedor.
+`POST /autenticate`: Rota responsável por autenticar um revendedor.
+`GET /purchase`: Rota responsável por cadastrar uma compra para o revendedor autenticado.
+`POST /purchase`: Rota responável por listar as compras cadastradas pelo revendedor autenticado.
+`GET /cashbak`: Rota responsável por retornar o valor do cashback mensal para o revendedor autenticado,
 
 ## 📝 Licença
 
