@@ -22,6 +22,10 @@ const errors = {
   1004: {
     HTTP_CODE: 401,
     MESSAGE: 'Invalid token!'
+  },
+  1005: {
+    HTTP_CODE: 400,
+    MESSAGE: 'Purchase already registered!'
   }
 }
 
