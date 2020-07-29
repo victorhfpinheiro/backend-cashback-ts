@@ -8,9 +8,8 @@
 
 <p align="center">Essa api é responsável por por gerenciar os "cashbacks" dos revendedores, portanto, a mesma contempla: cadastro de revendedores, autenticação através de documento e senha, listagem das compras cadastradas e tambem relatório com valor do cashback atual mensal.</p>
 
-<h4>
-    ![E-Store](http://img.shields.io/badge/E.store-1.0.0-blue)
-</h4>
+
+![E-Store](http://img.shields.io/badge/E.store-1.0.0-blue)
 
 
 ## ✋🏻 Pré-requisitos
