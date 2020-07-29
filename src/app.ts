@@ -7,7 +7,8 @@ import routes from './routes'
 import { errors } from 'celebrate'
 import mongoose from 'mongoose'
 import handlerException from './exceptions/handler.exception'
-import loggerMiddleware from '@middlewares/logger.middleware'
+import loggerMiddleware from './middlewares/logger.middleware'
+import logger from './logger/logger.app'
 
 class App {
   public express: express.Application;
@@ -15,15 +16,19 @@ class App {
   public constructor () {
     this.express = express()
     this.envs()
+    this.logger()
     this.middlewares()
     this.database()
-    this.logger()
     this.routes()
     this.errors()
   }
 
   private envs (): void {
-    dotenv.config()
+    const { NODE_ENV } = process.env
+
+    dotenv.config({
+      path: NODE_ENV === 'test' ? './env/.env.test' : './env/.env'
+    })
   }
 
   private middlewares (): void {
@@ -42,14 +47,18 @@ class App {
         useUnifiedTopology: true
       }
     ).then(() =>
-      console.log('Database connected.')
+      logger.info('Database connected.')
+
     ).catch((err) =>
-      console.error('Error connecting to the database.', err)
+      logger.error('Error connecting to the database.', err)
     )
   }
 
   private logger (): void {
-    this.express.use(loggerMiddleware)
+    const { NODE_ENV } = process.env
+    if (NODE_ENV !== 'test') {
+      this.express.use(loggerMiddleware)
+    }
   }
 
   private routes (): void {

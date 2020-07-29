@@ -54,7 +54,13 @@
       ],
       "@errors/*": [
         "./src/errors/*"
-      ]
+      ],
+      "@configs/*": [
+        "./src/configs/*"
+      ],
+      "@loggers/*": [
+        "./src/loggers/*"
+      ],
     }
   },
   "include": [
