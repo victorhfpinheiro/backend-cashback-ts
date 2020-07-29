@@ -17,7 +17,7 @@
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/pt-BR/docs/install)
 
-## 🌝 Instalação e execução
+## ✔ Instalação e execução
 
 1. Faça um clone desse repositório;
 2. Entre na pasta `cd backend-cashback-ts`;
