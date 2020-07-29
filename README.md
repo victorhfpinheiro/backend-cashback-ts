@@ -1,5 +1,3 @@
-# Cashback Backend
-
 <h1 align="center">
   <img alt="GoStack" src="https://image.flaticon.com/icons/svg/2037/2037427.svg" width="120px" />
 </h1>
@@ -10,7 +8,10 @@
 
 <p align="center">Essa api é responsável por por gerenciar os "cashbacks" dos revendedores, portanto, a mesma contempla: cadastro de revendedores, autenticação através de documento e senha, listagem das compras cadastradas e tambem relatório com valor do cashback atual mensal.</p>
 
-![E-Store](http://img.shields.io/badge/E.store-1.0.0-blue)
+<h4>
+    ![E-Store](http://img.shields.io/badge/E.store-1.0.0-blue)
+</h4>
+
 
 ## ✋🏻 Pré-requisitos
 
@@ -36,10 +37,4 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
-
-
-
-This is the backend project for CashBack app. It is based on [NodeJS](https://nodejs.org/en/)
-
 ---
