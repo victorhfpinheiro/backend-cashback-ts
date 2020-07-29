@@ -36,7 +36,7 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ## 🚀 Deploy Heroku
 
 - Após realizarmos o merge da feature da alteção na master, em minutos o codigo ficará disponivel no Heroku:
-`https://backend-cashback-ts.herokuapp.com)`
+`https://backend-cashback-ts.herokuapp.com/`
 
 ## 📝 Licença
 
