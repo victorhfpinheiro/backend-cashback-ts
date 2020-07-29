@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="GoStack" src="https://image.flaticon.com/icons/svg/2037/2037427.svg" width="120px" />
+  <img alt="GoStack" src="https://image.flaticon.com/icons/svg/2037/2037427.svg" width="160px" />
 </h1>
 
 <h3 align="center">
